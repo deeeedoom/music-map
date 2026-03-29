@@ -9,7 +9,7 @@ export default function Home() {
         </p>
 
         <h1 className="mb-6 max-w-4xl text-5xl font-bold leading-tight md:text-6xl">
-          用 AI 帮你找到进入 Tech 音乐世界的路径
+          Tech music map with AI, gogogo
         </h1>
 
         <p className="mb-10 max-w-2xl text-lg leading-8 text-neutral-300">
