@@ -12,6 +12,8 @@ type ResultClientProps = {
   context?: string;
 };
 
+const QQ_SEARCH_BASE = "https://y.qq.com/n/ryqq/search?w=";
+
 export default function ResultClient({ seed, context }: ResultClientProps) {
   const [data, setData] = useState<RecommendationSuccessResponse["data"] | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -160,6 +162,32 @@ export default function ResultClient({ seed, context }: ResultClientProps) {
         <p className="mb-10 max-w-3xl text-lg leading-8 text-neutral-300">
           {data.recommendation.summary}
         </p>
+
+        <div className="mb-10 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+          <p className="mb-4 text-sm text-neutral-500">推荐歌曲（QQ音乐搜索）</p>
+          {data.recommendation.tracks.length === 0 ? (
+            <p className="text-sm text-neutral-400">暂无推荐歌曲</p>
+          ) : (
+            <ul className="space-y-3">
+              {data.recommendation.tracks.map((track) => {
+                const query = encodeURIComponent(`${track.title} ${track.artist}`);
+                return (
+                  <li key={`${track.title}-${track.artist}`}>
+                    <a
+                      href={`${QQ_SEARCH_BASE}${query}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex flex-col rounded-xl border border-neutral-800 px-4 py-3 transition hover:bg-neutral-900"
+                    >
+                      <span className="font-medium text-white">{track.title}</span>
+                      <span className="text-sm text-neutral-400">{track.artist}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {data.recommendation.stages.map((stage) => (

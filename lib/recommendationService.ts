@@ -39,9 +39,21 @@ function safeParseRecommendation(content: string): Recommendation | null {
       typeof parsed.pathTitle !== "string" ||
       typeof parsed.summary !== "string" ||
       !Array.isArray(parsed.stages) ||
+      !Array.isArray(parsed.tracks) ||
       !Array.isArray(parsed.artists) ||
       !Array.isArray(parsed.keywords) ||
       !Array.isArray(parsed.nextSteps)
+    ) {
+      return null;
+    }
+
+    if (
+      !parsed.tracks.every(
+        (track) =>
+          track &&
+          typeof track.title === "string" &&
+          typeof track.artist === "string"
+      )
     ) {
       return null;
     }

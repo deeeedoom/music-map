@@ -32,6 +32,11 @@ JSON 结构必须完全符合下面格式：
       "description": "描述"
     }
   ],
+  "tracks": [
+    { "title": "歌曲名1", "artist": "艺人1" },
+    { "title": "歌曲名2", "artist": "艺人2" },
+    { "title": "歌曲名3", "artist": "艺人3" }
+  ],
   "artists": ["艺人1", "艺人2", "艺人3", "艺人4"],
   "keywords": ["关键词1", "关键词2", "关键词3", "关键词4"],
   "nextSteps": ["建议1", "建议2", "建议3"]
@@ -40,10 +45,12 @@ JSON 结构必须完全符合下面格式：
 要求：
 1. 输出中文。
 2. 内容要围绕 techno / house / electronic music 的探索路径。
-3. artists 必须给 4 个字符串。
-4. keywords 必须给 4 个字符串。
-5. nextSteps 必须给 3 个字符串。
-6. stages 必须严格是 3 个对象。
-7. 不要返回 null。
+3. tracks 必须给 3 个对象，每个对象包含 title/artist 两个字符串。
+4. artists 必须给 4 个字符串。
+5. keywords 必须给 4 个字符串。
+6. nextSteps 必须给 3 个字符串。
+7. stages 必须严格是 3 个对象。
+8. 不要返回 null。
+9. tracks 请尽量使用真实可搜索的歌曲名与艺人组合。
 `.trim();
 }

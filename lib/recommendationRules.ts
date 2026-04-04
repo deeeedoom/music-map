@@ -4,10 +4,16 @@ export type RecommendationStage = {
   description: string;
 };
 
+export type RecommendationTrack = {
+  title: string;
+  artist: string;
+};
+
 export type Recommendation = {
   pathTitle: string;
   summary: string;
   stages: RecommendationStage[];
+  tracks: RecommendationTrack[];
   artists: string[];
   keywords: string[];
   nextSteps: string[];
@@ -42,6 +48,11 @@ export const RECOMMENDATION_RULES: RecommendationRule[] = [
           description: "在强劲能量之外，加入更清晰的鼓组滚动和律动身体感。",
         },
       ],
+      tracks: [
+        { title: "Look What Your Love Has Done To Me", artist: "Perc" },
+        { title: "Escape The System", artist: "Dax J" },
+        { title: "L'Appel Du Vide", artist: "Regal" },
+      ],
       artists: ["Perc", "Dax J", "Regal", "Cleric"],
       keywords: ["industrial", "pressure", "peak-time", "hard groove"],
       nextSteps: [
@@ -73,6 +84,11 @@ export const RECOMMENDATION_RULES: RecommendationRule[] = [
           name: "Microhouse",
           description: "更细腻、更微观，重视声音纹理与长期聆听体验。",
         },
+      ],
+      tracks: [
+        { title: "Pick Up", artist: "DJ Koze" },
+        { title: "Your Love", artist: "Frankie Knuckles" },
+        { title: "I Can't Kick This Feeling When It Hits", artist: "Moodymann" },
       ],
       artists: ["Ricardo Villalobos", "Zip", "Janeret", "DJ Masda"],
       keywords: ["warm", "groove", "minimal", "micro-detail"],
@@ -107,6 +123,11 @@ export const RECOMMENDATION_RULES: RecommendationRule[] = [
         },
       ],
       artists: ["Emmanuel Top", "Thomas P. Heckmann", "Hadone", "Chlär"],
+      tracks: [
+        { title: "Acid Phase", artist: "Emmanuel Top" },
+        { title: "Higher State of Consciousness", artist: "Josh Wink" },
+        { title: "Acperience 1", artist: "Hardfloor" },
+      ],
       keywords: ["acid", "303", "raw", "driving"],
       nextSteps: [
         "先确认你喜欢的是 acid 音色还是整体推进感",
@@ -137,6 +158,11 @@ export const DEFAULT_RECOMMENDATION: Recommendation = {
       name: "Minimal Techno",
       description: "更克制、更结构化，关注细节变化和长期聆听体验。",
     },
+  ],
+  tracks: [
+    { title: "Phylyps Trak", artist: "Basic Channel" },
+    { title: "Vantage Isle", artist: "Deepchord" },
+    { title: "Lapsus", artist: "Rodhad" },
   ],
   artists: ["Rodhad", "Deepchord", "Basic Channel", "Donato Dozzy"],
   keywords: ["deep", "space", "hypnotic", "minimal"],
